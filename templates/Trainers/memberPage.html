@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Trainers/dashTrainers.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-7">
+        <div class=" d-flex flex-column border border-1 border-dark rounded rounded-1 mx-3">
+            <div class="bg-dark w-100" style="height:30rem">
+
+            </div>
+            <div class="p-3">
+                <p class="mb-0 text-secondary" style="font-size:15px">Name</p>
+                <h5 class="mb-2 mt-0" style="">{{data.name}}</h5>
+                <p class="mb-0 text-secondary">Phone No</p>
+                <h5 class="text-truncate mb-2" style="font-size:15px">{{data.phoneNo}}</h5>
+                 <p class="mb-0 text-secondary">Address</p>
+                <h5 class="text-truncate mb-2" style="font-size:15px">{{data.address}}</h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-5">
+        <div class=" d-flex flex-column justify-content-center align-items-center border border-1 border-dark rounded rounded-1 p-3">
+            <p>Add Workout plan</p>
+            <div>
+                <a href="{% url 'addworkout' %}" class="btn btn-outline-primary">Select</a>
+            </div>
+        </div>
+        <div class=" mt-3  border border-1 border-dark rounded rounded-1 p-3" style="height: 28rem;">
+            <img class="image-fluid col-12"
+                 style="object-fit:contain,aspect-ratio:1/1 inline-size: 28rem;"
+                 src="https://lh4.googleusercontent.com/ve3ZhTQgBbJ4Yh2AphDbbdXUvrB_DR7iZd5wLGnjlIFJwDgKAYTOFJQ-G1cgtsVMqFhpBWB1vnCDcEfng770aumJyffm-UpP88IUJ2dzJm3AcUfiA-3pISvAcQ7Njg_lnZ52qLRVqLHAR5eyWjoTl8g">
+        </div>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-8">
+        <div class="mt-3  border border-1 border-dark rounded rounded-1 p-3">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p style="font-weight:bold; font-size:20px">{{work_data.type}}</p>
+                </div>
+                <div>
+                    <p class="text-secondary" style=" font-size:13px">{{work_data.date}}</p>
+                </div>
+            </div>
+            <div class="mt-3  border border-1 border-dark rounded rounded-1 p-3 overflow-auto" style="height:20rem;">
+                {{work_data.plan}}
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <a href="{% url 'updateworkout' work_data.id %}" class="btn btn-outline-primary">Update</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -34,8 +34,8 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src=" {% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTELogo" height="60"
-             width="60">
+        <img class="animation__shake" src=" {% static 'img/gym-image/loading.jpg' %} " alt="AdminLTELogo" height="150"
+             width="200">
     </div>
 
     <!-- Navbar -->
@@ -149,15 +149,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href=" " class="nav-link">
+                                <a href="{% url 'alltrainer' %} " class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>SELLER PAGE</p>
+                                    <p>TRAINER PAGE</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{% url 'allmember' %}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>CUSTOMER PAGE</p>
+                                    <p>MEMBER PAGE</p>
                                 </a>
                             </li>
                         </ul>

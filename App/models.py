@@ -46,3 +46,38 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class selectStatus(models.Model):
+    trainer = models.ForeignKey(Trainer,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    status = models.IntegerField(default=0)
+
+
+class WorkOutPlan(models.Model):
+    memberType = {
+        'Beginners ':'Beginners ',
+        'Casual Gym-Goers':'Casual Gym-Goers',
+        'Fitness Enthusiasts':'Fitness Enthusiasts',
+        'Bodybuilders & Strength Trainers':'Bodybuilders & Strength Trainers',
+        'Weight Loss Seekers ':'Weight Loss Seekers ',
+        'Athletes & Sports-Specific Trainers':'Athletes & Sports-Specific Trainers',
+        'Group Class Participants':'Group Class Participants',
+        'Seniors & Special Needs Members':'Seniors & Special Needs Members',
+        'Rehabilitation & Recovery Members':'Rehabilitation & Recovery Members',
+        'Hardcore Fitness Addicts':'Hardcore Fitness Addicts',
+    }
+
+    user = models.ForeignKey(Trainer,on_delete=models.CASCADE)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE)
+    type = models.CharField(max_length=100,choices=memberType)
+    plan = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
+class Community(models.Model):
+    trainer = models.ForeignKey(Trainer,on_delete=models.CASCADE,null=True,blank=True)
+    member = models.ForeignKey(Member,on_delete=models.CASCADE,null=True,blank=True)
+    msg = models.CharField(max_length=250)
+    picture = models.ImageField(upload_to='Community_picture/',null=True,blank=True)
+    date = models.DateField(auto_now_add=True)
+    time = models.TimeField(auto_now_add=True)

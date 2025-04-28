@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from App.models import LoginView, Trainer, Member
+from App.models import LoginView, Trainer, Member, WorkOutPlan, Community
 
 
 class LoginUserForm(UserCreationForm):
@@ -59,3 +59,23 @@ class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         fields = ('name', 'email', 'phoneNo', 'address')
+
+
+
+class WorkOutPlanForm(forms.ModelForm):
+    type = forms.ChoiceField(label='',choices=WorkOutPlan._meta.get_field('type').choices)
+    plan = forms.CharField(label='',widget=forms.Textarea(attrs={'class':'form-control','rows':'8','cols':'30'}))
+
+    class Meta:
+        model = WorkOutPlan
+        fields = ('type','plan')
+
+
+class CommunityForm(forms.ModelForm):
+    msg = forms.CharField(label='', widget=forms.TextInput(attrs={
+        'placeholder': 'Message', 'class': 'form-control', 'style': 'width:30rem;'
+    }))
+    picture = forms.ImageField(label='',required=False)
+    class Meta:
+        model = Community
+        fields = ('msg','picture')

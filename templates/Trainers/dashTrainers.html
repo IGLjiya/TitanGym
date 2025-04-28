@@ -34,8 +34,8 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src=" {% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTELogo" height="60"
-             width="60">
+        <img class="animation__shake" src=" {% static 'img/gym-image/loading.jpg' %} " alt="AdminLTELogo" height="150"
+             width="200">
     </div>
 
     <!-- Navbar -->
@@ -71,7 +71,7 @@
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="" class="dropdown-item">
+                    <a href="{% url 'logout' %}" class="dropdown-item">
                         <div class="pl-5 pt-2">
                             <p>Logout</p>
                         </div>
@@ -140,21 +140,21 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href=" " class="nav-link">
+                                <a href="{% url 'dashTrainer' %}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Home</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="  " class="nav-link">
+                                <a href="{% url 'selectrequest' %}"   class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>.....</p>
+                                    <p>Member Requests</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href=" " class="nav-link">
+                                <a href="{% url 'trainercommunity' %} " class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>...</p>
+                                    <p>Community Chat</p>
                                 </a>
                             </li>
                         </ul>
@@ -192,11 +192,57 @@
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
-                <div class="d-flex justify-content-center align-items-center w-100">
-                    {% block content %}
 
-                    {% endblock %}
+                    {% block content %}
+                <div class="row">
+                    <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://www.fitness-world.in/blog/ensuring-you-set-up-a-successful-commercial-gym-in-india">
+                        <p class="text-dark" style="font-weight:bold;">Ensuring You Set Up A Successful Commercial Gym In India</p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/1gym.jpg' %}">
+                        </div>
+                    </a>
+                    <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://timesofindia.indiatimes.com/city/delhi/stretched-by-closure-gym-owners-need-to-wait-for-another-review/articleshow/89166168.cms">
+                        <p class="text-dark" style="font-weight:bold;">stretched by closure gym owners need to wait for
+                            another review</p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/3gyn.png' %}">
+                        </div>
+                    </a>
+                    <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://english.mathrubhumi.com/news/kerala/wayanad-youth-dies-while-working-out-in-gym-6dc20bd8">
+                        <p class="text-dark" style="font-weight:bold;">Youth dies while exercising at gym in Wayanad </p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/2gym.jpg' %}">
+                        </div>
+                    </a>
                 </div>
+                <div class="row">
+                     <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://www.nbcnews.com/better/lifestyle/what-look-avoid-personal-trainer-ncna982671">
+                        <p class="text-dark" style="font-weight:bold;">What to look for (and avoid) in a personal trainer</p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/4gym.png' %}">
+                        </div>
+                    </a>
+                     <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://indianexpress.com/article/india/centre-issues-guidelines-curbs-for-elderly-visors-during-workout-gym-rules-worked-out-6537937/">
+                        <p class="text-dark" style="font-weight:bold;">Centre issues guidelines: Curbs for elderly, visors during workout, gym rules worked out</p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/5gym.png' %}">
+                        </div>
+                    </a>
+                     <a class="btn btn-outline-light border-dark px-3 m-3"
+                       href="https://www.youtube.com/watch?v=g4lNXAHcKlQ">
+                        <p class="text-dark" style="font-weight:bold;">On CCTV, Gym Trainer Picks Up Club, Hits Mumbai Man On Head During Workout</p>
+                        <div class=" w-100  col-3  m-2  " style="height:100%;">
+                            <img width="400" src="{% static 'img/gym-image/6gym.jpg' %}">
+                        </div>
+                    </a>
+                </div>
+                    {% endblock %}
+
 
             </div><!-- /.container-fluid -->
         </div>

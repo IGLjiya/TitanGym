@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Members/dashMembers.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="row">
+    <div class="col-7">
+        <div class=" d-flex flex-column border border-1 border-dark rounded rounded-1 mx-3">
+            <div class="bg-dark w-100" style="height:30rem">
+                <img width="915" height="479" src="{% static 'img/gym-image/personalphoto.jpg' %}">
+            </div>
+            <div class="p-3">
+                <p class="mb-0 text-secondary" style="font-size:15px">Name</p>
+                <h5 class="mb-2 mt-0" style="">{{data.name}}</h5>
+                <p class="mb-0 text-secondary">Trainer Type</p>
+                <h5 class="text-truncate mb-2" style="font-size:15px">{{data.type}}</h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-5">
+        <div class=" d-flex flex-column justify-content-center align-items-center border border-1 border-dark rounded rounded-1 p-3">
+            <p>Add As Your Trainer</p>
+            <div>
+                {% if status %}
+                {% for i in status %}
+                {% if i.status == 1 %}
+                <button disabled class="btn btn-outline-success">Accepted</button>
+                {% elif i.status == 2 %}
+                <button disabled class="btn btn-outline-danger">Rejected</button>
+                {% else %}
+                <button disabled class="btn btn-outline-primary">Pending</button>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                <a href="{% url 'select' data.id %}" class="btn btn-outline-primary">Select</a>
+                {% endif %}
+
+
+            </div>
+        </div>
+         <div class=" mt-3  border border-1 border-dark rounded rounded-1 p-3" style="height: 28rem;">
+            <img class="image-fluid col-12"
+                 style="object-fit:contain,aspect-ratio:1/1 inline-size: 28rem;"
+                 src="https://lh4.googleusercontent.com/ve3ZhTQgBbJ4Yh2AphDbbdXUvrB_DR7iZd5wLGnjlIFJwDgKAYTOFJQ-G1cgtsVMqFhpBWB1vnCDcEfng770aumJyffm-UpP88IUJ2dzJm3AcUfiA-3pISvAcQ7Njg_lnZ52qLRVqLHAR5eyWjoTl8g">
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

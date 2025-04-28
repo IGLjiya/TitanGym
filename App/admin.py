@@ -7,3 +7,6 @@ from App import models
 admin.site.register(models.LoginView)
 admin.site.register(models.Member)
 admin.site.register(models.Trainer)
+admin.site.register(models.WorkOutPlan)
+admin.site.register(models.selectStatus)
+admin.site.register(models.Community)
