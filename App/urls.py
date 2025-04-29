@@ -15,6 +15,7 @@ urlpatterns =[
     path('alltrainer',viewAdmin.alltrainer,name='alltrainer'),
     path('deletemem/<int:id>/',viewAdmin.deletemember,name='deletemem'),
     path('deletetrai/<int:id>/',viewAdmin.deletetrainer,name='deletetrai'),
+    path('admincommunity',viewAdmin.adminCommunityView,name='admincommunity'),
 
 
     # members

@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from App.models import Member, Trainer
+from App.models import Member, Trainer, Community
+
 
 @login_required(login_url='home')
 def dashAdmin(request):
@@ -37,4 +38,10 @@ def deletetrainer(request,id):
     data.delete()
     return redirect('alltrainer')
 
+
+
+@login_required(login_url='home')
+def adminCommunityView(request):
+    chat_data = Community.objects.all()
+    return render(request,'Admin/communityPageAdmin.html',{'chat_data':chat_data})
 

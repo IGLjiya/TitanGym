@@ -71,7 +71,7 @@ def deletereqt(request,id):
 def viewMember(request,id):
     mem_data = Member.objects.get(id=id)
     trainer_data = Trainer.objects.get(user=request.user)
-    work_data = WorkOutPlan.objects.get(member=mem_data,user=trainer_data)
+    work_data = WorkOutPlan.objects.filter(member=mem_data,user=trainer_data)
     return render(request,'Trainers/memberPage.html',
                   {'data':mem_data,'work_data':work_data})
 
