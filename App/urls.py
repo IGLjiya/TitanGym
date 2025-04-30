@@ -5,7 +5,7 @@ from App import views, viewAdmin, viewMembers, viewTrainers
 urlpatterns =[
     path('',views.home,name='home'),
     path('login',views.Login,name='login'),
-    path('logout/',views.logout,name='logout'),
+    path('logout',views.Logout,name='logout'),
 
 
 
@@ -16,6 +16,7 @@ urlpatterns =[
     path('deletemem/<int:id>/',viewAdmin.deletemember,name='deletemem'),
     path('deletetrai/<int:id>/',viewAdmin.deletetrainer,name='deletetrai'),
     path('admincommunity',viewAdmin.adminCommunityView,name='admincommunity'),
+    path('chatdeleteA/<int:id>/',viewAdmin.chatDeleteAdmin,name='chatdeleteA'),
 
 
     # members

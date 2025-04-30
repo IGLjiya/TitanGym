@@ -39,13 +39,40 @@
 
             </div>
         </div>
-         <div class=" mt-3  border border-1 border-dark rounded rounded-1 p-3" style="height: 28rem;">
+        <div class=" mt-3  border border-1 border-dark rounded rounded-1 p-3" style="height: 28rem;">
             <img class="image-fluid col-12"
                  style="object-fit:contain,aspect-ratio:1/1 inline-size: 28rem;"
                  src="https://lh4.googleusercontent.com/ve3ZhTQgBbJ4Yh2AphDbbdXUvrB_DR7iZd5wLGnjlIFJwDgKAYTOFJQ-G1cgtsVMqFhpBWB1vnCDcEfng770aumJyffm-UpP88IUJ2dzJm3AcUfiA-3pISvAcQ7Njg_lnZ52qLRVqLHAR5eyWjoTl8g">
         </div>
 
     </div>
+
+    {% for work in work_data %}
+    <div class="row">
+        <div class="col-8">
+            <div class="mt-3  border border-1 border-dark rounded rounded-1 p-3">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p style="font-weight:bold; font-size:20px">{{work.type}}</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary" style=" font-size:13px">{{work.date}}</p>
+                    </div>
+                </div>
+                <div class="mt-3  border border-1 border-dark rounded rounded-1 p-3 overflow-auto"
+                     style="height:20rem;">
+                    {{work.plan}}
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <a href="{% url 'updateworkout' work.id %}" class="btn btn-outline-primary">Update</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
 
 </div>
 

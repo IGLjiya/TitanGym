@@ -74,6 +74,9 @@ class WorkOutPlan(models.Model):
     plan = models.TextField()
     date = models.DateField(auto_now_add=True)
 
+
+
+
 class Community(models.Model):
     trainer = models.ForeignKey(Trainer,on_delete=models.CASCADE,null=True,blank=True)
     member = models.ForeignKey(Member,on_delete=models.CASCADE,null=True,blank=True)

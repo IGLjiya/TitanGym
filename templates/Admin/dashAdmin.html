@@ -106,8 +106,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src=" {% static 'dist/img/user2-160x160.jpg' %} " class="img-circle elevation-2"
-                         alt="User Image">
+
                 </div>
                 <div class="info">
                     <a href="#" class="d-block"></a>
@@ -195,8 +194,19 @@
                         </ol>
                     </div><!-- /.col -->
                     {% block data %}
-                    <div>
-                        Admin
+                    <div class="row">
+                        <div class="container col-12 mt-5 ml-5">
+
+                            <div class="mt-5 ml-5  d-flex justify-content-center align-items-center w-100 " style="height:100%;">
+                                <a href="{% url 'allmember' %}" class="btn btn-outline-dark px-5 py-3 mx-3">Member
+                                    Page</a>
+                                <a href="{% url 'alltrainer' %}" class="btn btn-outline-dark px-5 py-3 mx-3">Trainer
+                                    Page</a>
+                                <a href="{% url 'admincommunity' %}" class="btn btn-outline-dark px-5 py-3 mx-3">Community
+                                    Page</a>
+
+                            </div>
+                        </div>
                     </div>
                     {% endblock %}
 

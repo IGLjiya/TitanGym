@@ -45,3 +45,10 @@ def adminCommunityView(request):
     chat_data = Community.objects.all()
     return render(request,'Admin/communityPageAdmin.html',{'chat_data':chat_data})
 
+
+
+@login_required(login_url='home')
+def chatDeleteAdmin(request,id):
+    data = Community.objects.get(id=id)
+    data.delete()
+    return redirect('admincommunity')

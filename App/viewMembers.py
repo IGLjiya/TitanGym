@@ -3,7 +3,8 @@ from django.shortcuts import redirect, render
 
 from App.filter import TrainerNameFilter
 from App.forms import LoginUserForm, MemberForm, CommunityForm
-from App.models import Trainer, Member, selectStatus, Community
+from App.models import Trainer, Member, selectStatus, Community, WorkOutPlan
+
 
 @login_required(login_url='home')
 def dashMember(request):
@@ -45,8 +46,9 @@ def trainerPage(request, id):
     trainer_data = Trainer.objects.get(id=id)
     mem_data = Member.objects.get(user=request.user)
     status = selectStatus.objects.filter(trainer=id,member=mem_data)
+    work_data = WorkOutPlan.objects.filter(user=trainer_data,member=mem_data)
     return render(request, 'Members/TrainerPage.html',
-                  {'data': trainer_data,'status':status})
+                  {'data': trainer_data,'status':status,'work_data':work_data})
 
 
 
